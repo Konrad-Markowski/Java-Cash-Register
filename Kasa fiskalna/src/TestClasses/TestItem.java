@@ -1,4 +1,6 @@
-package classes;
+package TestClasses;
+
+import classes.Item;
 
 public class TestItem {
     public static void main(String[] args) {
