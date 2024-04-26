@@ -9,34 +9,30 @@ public class Receipt {
     private double totalPrice;
     private LocalDateTime date;
 
-    public Receipt(List<Item> items, double totalPrice) {
+    public Receipt(List<Item> items) {
         this.items = items;
-        this.totalPrice = totalPrice;
         this.date = LocalDateTime.now();
-    }
-
-    public void setItems(List<Item> items) {
-        this.items = items;
-    }
-
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
-    public void setDate(LocalDateTime date) {
-        this.date = date;
     }
 
     public List<Item> getItems() {
         return items;
     }
 
-    public double getTotalPrice() {
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public double getTotalPrice(){
+        double sum=0;
+        for(Item item : items){
+            sum+=item.getPrice();
+        }
+        totalPrice=sum;
         return totalPrice;
     }
 
-    public LocalDateTime getDate() {
-        return date;
+    public void addItem(Item item){
+        items.add(item);
     }
 
     public void printReceipt(){
@@ -45,6 +41,6 @@ public class Receipt {
         for (Item item : items){
             System.out.println(item);
         }
-        System.out.println("total price: "+totalPrice+"PLN"+"\n"+"date: "+formattedDate);
+        System.out.println("total price: "+getTotalPrice()+"PLN"+"\n"+"date: "+formattedDate);
     }
 }

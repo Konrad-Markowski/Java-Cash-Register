@@ -8,4 +8,5 @@ public class CardPayment implements IPayment {
     public void processPayment(double amount) {
         System.out.println("Processing card payment: "+amount);
     }
+
 }
