@@ -3,8 +3,6 @@ package classes;
 import interfaces.IPayment;
 import interfaces.ITransaction;
 
-import java.util.Scanner;
-
 public class Transaction implements ITransaction {
     private Receipt receipt;
     private String paymentMethod;
